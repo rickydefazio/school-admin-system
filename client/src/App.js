@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Courses from './components/Courses';
 
-function App() {
-  // testing connection to api
-  fetch('http://localhost:5000/api/courses')
-    .then(res => res.json())
-    .then(data => console.log(data))
+class App extends Component {
 
-  return (
-    <div className="App">
-      
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        
+      </div>
+    );
+  }
 }
 
 export default App;
