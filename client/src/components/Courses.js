@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Header from 'Header';
 
 class Courses extends Component {
 
@@ -12,9 +13,11 @@ class Courses extends Component {
       .then(data => {
         this.setState({
           courses: data
-        })
+        });
       })
       .catch(err => console.log('Error fetching and parsing data', err));
+
+    document.title = "Courses";
   }
 
   render() {
