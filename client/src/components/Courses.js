@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Courses extends Component {
 
   state = {
-    courses: []
+    courseData: []
   }
 
   componentDidMount() {
@@ -11,7 +11,7 @@ class Courses extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          courses: data
+          courseData: data
         });
       })
       .catch(err => console.log('Error fetching and parsing data', err));
@@ -25,7 +25,7 @@ class Courses extends Component {
         <div className="grid-33">
           <a className="course--module course--link" href="course-detail.html">
             <h4 className="course--label">Course</h4>
-            <h3 className="course--title">Build a Basic Bookcase</h3>
+            <h3 className="course--title">{this.state.courseData[0].title}</h3>
           </a>
         </div>
         <div className="grid-33">
