@@ -1,45 +1,41 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Courses extends Component {
-
   state = {
     courseData: []
   }
 
   componentDidMount() {
     fetch('http://localhost:5000/api/courses')
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data => {
         this.setState({
           courseData: data
-        });
+        })
       })
-      .catch(err => console.log('Error fetching and parsing data', err));
+      .catch(err => console.log(err))
 
     document.title = "Courses";
   }
 
   render() {
+
+    const courseTitles = this.state.courseData.map(course => {
+      return (
+        <div key={course.id} className="grid-33">
+          <Link className="course--module course--link" to="/courses/detail">
+            <h4 className="course--label">Course</h4>
+            <h3 className="course--title">{course.title}</h3>
+          </Link>
+        </div>
+      );
+    });
+
+
     return (
       <div className="bounds">
-        <div className="grid-33">
-          <a className="course--module course--link" href="course-detail.html">
-            <h4 className="course--label">Course</h4>
-            <h3 className="course--title">{this.state.courseData[0].title}</h3>
-          </a>
-        </div>
-        <div className="grid-33">
-          <a className="course--module course--link" href="course-detail.html">
-            <h4 className="course--label">Course</h4>
-            <h3 className="course--title">Learn How to Program</h3>
-          </a>
-        </div>
-        <div className="grid-33">
-          <a className="course--module course--link" href="course-detail.html">
-            <h4 className="course--label">Course</h4>
-            <h3 className="course--title">Learn How to Test Programs</h3>
-          </a>
-        </div>
+        {courseTitles}
         <div className="grid-33">
           <a className="course--module course--add--module" href="create-course.html">
             <h3 className="course--add--title">
@@ -50,7 +46,7 @@ class Courses extends Component {
           </a>
         </div>
       </div>
-    )
+    );
   }
 }
 
