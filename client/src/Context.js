@@ -4,10 +4,6 @@ const Context = React.createContext();
 
 export class Provider extends Component {
 
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <Context.Provider>

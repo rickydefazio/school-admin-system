@@ -248,6 +248,12 @@ body {
   color: rgba(255, 255, 255, 0.5);
   margin-left: 20px;
 }
+
+/* Nav Active Links */
+.header nav a.active {
+  color: white;
+}
+
 /* line 40, ../sass/global.sass */
 .header nav a:hover {
   color: #fff;
