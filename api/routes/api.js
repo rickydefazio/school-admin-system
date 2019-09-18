@@ -31,15 +31,10 @@ router.get('/users', authenticateUser, (req, res, next) => {
 router.post('/users', async (req, res, next) => {
   try {
     const user = req.body;
-    if (user.password) {
-      user.password = bcryptjs.hashSync(user.password);
-      await User.create(user);
-      res.location('/').status(201).end();
-    } else {
-      const error = new Error("Insufficient information provided");
-      error.status = 400;
-      next(error);
-    }
+    user.password = bcryptjs.hashSync(user.password);
+    await User.create(user);
+    res.location('/').status(201).end();
+
   } catch (error) {
     if (error.name === 'SequelizeValidationError') {
       error.status = 400;

@@ -15,6 +15,10 @@ import UpdateCourse from './components/UpdateCourse';
 import NotFound from './components/NotFound';
 import Authenticated from './components/Authenticated';
 
+import withContext from './Context';
+
+const UserSignUpWithContext = withContext(UserSignUp);
+
 
 
 const App = () => (
@@ -29,7 +33,7 @@ const App = () => (
         <Route path="/courses/:id/update" component={UpdateCourse} />
         <Route path="/courses/:id" component={CourseDetail} />
         <Route path="/signin" component={UserSignIn} />
-        <Route path="/signup" component={UserSignUp} />
+        <Route path="/signup" component={UserSignUpWithContext} />
         <Route path="/signout" component={UserSignOut} />
 
         <Route component={NotFound} />
