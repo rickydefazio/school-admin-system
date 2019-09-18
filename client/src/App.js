@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Route,
@@ -13,34 +13,29 @@ import CreateCourse from './components/CreateCourse';
 import CourseDetail from './components/CourseDetail';
 import UpdateCourse from './components/UpdateCourse';
 import NotFound from './components/NotFound';
+import Authenticated from './components/Authenticated';
 
 
 
-class App extends Component {
-  state = {
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <Header />
 
-  }
+      <Switch>
+        <Route exact path="/" component={Courses} />
+        <Route path="/authenticated" component={Authenticated} />
+        <Route path="/courses/create" component={CreateCourse} />
+        <Route path="/courses/:id/update" component={UpdateCourse} />
+        <Route path="/courses/:id" component={CourseDetail} />
+        <Route path="/signin" component={UserSignIn} />
+        <Route path="/signup" component={UserSignUp} />
+        <Route path="/signout" component={UserSignOut} />
 
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Courses} />
-            <Route path="/courses/create" component={CreateCourse} />
-            <Route path="/courses/:id/update" component={UpdateCourse} />
-            <Route path="/courses/:id" component={CourseDetail} />
-            <Route path="/signin" component={UserSignIn} />
-            <Route path="/signup" component={UserSignUp} />
-            <Route path="/signout" component={UserSignOut} />
-
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+);
 
 export default App;
