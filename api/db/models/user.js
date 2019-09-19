@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
           msg: 'Please provide a value for "Email Address".'
         },
         isEmail: {
-          msg: 'Please provide a valid email.'
+          msg: 'A valid email is required.'
         }
       }
     },

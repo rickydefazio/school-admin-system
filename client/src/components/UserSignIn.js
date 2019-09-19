@@ -4,14 +4,14 @@ import Form from './Form';
 
 class UserSignIn extends Component {
   state = {
-    username: '',
+    emailAddress: '',
     password: '',
     errors: [],
   }
 
   render() {
     const {
-      username,
+      emailAddress,
       password,
       errors,
     } = this.state;
@@ -28,12 +28,12 @@ class UserSignIn extends Component {
             elements={() => (
               <React.Fragment>
                 <input 
-                  id="username" 
-                  name="username" 
-                  type="text"
-                  value={username} 
+                  id="emailAddress" 
+                  name="emailAddress" 
+                  type="email"
+                  value={emailAddress} 
                   onChange={this.change} 
-                  placeholder="User Name" />
+                  placeholder="Email Address" />
                 <input 
                   id="password" 
                   name="password"
