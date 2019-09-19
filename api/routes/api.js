@@ -31,7 +31,9 @@ router.get('/users', authenticateUser, (req, res, next) => {
 router.post('/users', async (req, res, next) => {
   try {
     const user = req.body;
-    bcryptjs.hashSync(user.password);
+    if (user.password) {
+      user.password = bcryptjs.hashSync(user.password);
+    }
     await User.create(user);
     res.location('/').status(201).end();
   } catch (error) {

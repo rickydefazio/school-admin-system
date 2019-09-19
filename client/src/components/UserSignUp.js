@@ -107,23 +107,26 @@ class UserSignUp extends Component {
       password
     };
 
-    context.data.createUser(user)
-      .then(errors => {
-        if (errors.length) {
-          this.setState({ errors });
-          if (password !== confirmPassword) {
-            const passwordsDoNotMatch = "Passwords do not match.";
-            this.setState({
-              errors: [ ...this.state.errors, passwordsDoNotMatch ]
-              });
+
+    if (password !== confirmPassword) {
+      const passwordsDoNotMatch = [ "Passwords do not match." ];
+      this.setState({ 
+        errors: passwordsDoNotMatch 
+      })
+    } else {
+      context.data.createUser(user)
+        .then(errors => {
+          if (errors.length) {
+            this.setState({ errors });
+          } else {
+            console.log(`${emailAddress} is successfully signed up and authenticated!`);
           }
-        } else {
-          console.log(`${emailAddress} is successfully signed up and authenticated!`);
-        }
-      })
-      .catch( err => {
-        this.props.history.push('/error');
-      })
+        })
+        .catch( err => {
+          console.log(err);
+          this.props.history.push('/error');
+        })
+      }
     }
 
   cancel = () => {
