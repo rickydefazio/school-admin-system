@@ -18,6 +18,8 @@ import Authenticated from './components/Authenticated';
 import withContext from './Context';
 
 const UserSignUpWithContext = withContext(UserSignUp);
+const UserSignInWithContext = withContext(UserSignIn);
+
 
 
 
@@ -32,7 +34,7 @@ const App = () => (
         <Route path="/courses/create" component={CreateCourse} />
         <Route path="/courses/:id/update" component={UpdateCourse} />
         <Route path="/courses/:id" component={CourseDetail} />
-        <Route path="/signin" component={UserSignIn} />
+        <Route path="/signin" component={UserSignInWithContext} />
         <Route path="/signup" component={UserSignUpWithContext} />
         <Route path="/signout" component={UserSignOut} />
 
