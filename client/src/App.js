@@ -17,6 +17,7 @@ import Authenticated from './components/Authenticated';
 
 import withContext from './Context';
 
+const HeaderWithContext = withContext(Header);
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn);
 
@@ -26,7 +27,7 @@ const UserSignInWithContext = withContext(UserSignIn);
 const App = () => (
   <BrowserRouter>
     <div>
-      <Header />
+      <HeaderWithContext />
 
       <Switch>
         <Route exact path="/" component={Courses} />
