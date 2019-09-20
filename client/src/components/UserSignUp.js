@@ -121,7 +121,7 @@ class UserSignUp extends Component {
           } else {
             context.actions.signIn(emailAddress, password)
               .then(() => {
-                this.props.history.push('/authenticated');
+                this.props.history.push('/');
               });
           }
         })
