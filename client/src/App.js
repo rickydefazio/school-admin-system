@@ -34,7 +34,7 @@ const App = () => (
         <Route path="/courses/create" component={CreateCourse} />
         <Route path="/courses/:id/update" component={UpdateCourse} />
         <Route path="/courses/:id" component={CourseDetail} />
-        <Route path="/signin" component={UserSignInWithContext} />
+        <Route path="/signin" component={UserSignIn} />
         <Route path="/signup" component={UserSignUpWithContext} />
         <Route path="/signout" component={UserSignOut} />
 
