@@ -35,6 +35,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Courses} />
         <PrivateRoute path="/authenticated" component={AuthWithContext} />
+        <PrivateRoute path="/settings" component={AuthWithContext} />
         <Route path="/courses/create" component={CreateCourse} />
         <Route path="/courses/:id/update" component={UpdateCourse} />
         <Route path="/courses/:id" component={CourseDetail} />
