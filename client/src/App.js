@@ -16,10 +16,12 @@ import NotFound from './components/NotFound';
 import Authenticated from './components/Authenticated';
 
 import withContext from './Context';
+import PrivateRoute from './PrivateRoute';
 
 const HeaderWithContext = withContext(Header);
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn);
+const AuthWithContext = withContext(Authenticated);
 
 
 
@@ -31,7 +33,7 @@ const App = () => (
 
       <Switch>
         <Route exact path="/" component={Courses} />
-        <Route path="/authenticated" component={Authenticated} />
+        <PrivateRoute path="/authenticated" component={AuthWithContext} />
         <Route path="/courses/create" component={CreateCourse} />
         <Route path="/courses/:id/update" component={UpdateCourse} />
         <Route path="/courses/:id" component={CourseDetail} />
