@@ -7,16 +7,15 @@ class Courses extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/api/courses')
-      .then(response => response.json())
+    document.title = "Courses";
+
+    this.props.context.data.getCourses()
       .then(data => {
         this.setState({
           courseData: data
         })
       })
-      .catch(err => console.log(err))
-
-    document.title = "Courses";
+      .catch(err => console.log(err));
   }
 
   render() {
