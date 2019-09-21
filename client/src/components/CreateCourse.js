@@ -35,6 +35,11 @@ class CreateCourse extends Component {
       errors,
     } = this.state;
 
+    const {
+      firstName, 
+      lastName
+    } = this.props.context.authenticatedUser;
+
 
     return (
       <div className="bounds course--detail">
@@ -59,7 +64,7 @@ class CreateCourse extends Component {
                         value={title}
                         onChange={this.change} />
                     </div>
-                    <p>By Joe Smith</p>
+                    <p>By {`${firstName} ${lastName}`}</p>
                   </div>
                   <div className="course--description">
                     <div>
