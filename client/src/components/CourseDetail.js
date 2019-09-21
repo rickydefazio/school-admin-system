@@ -19,6 +19,7 @@ class CourseDetail extends Component {
       .catch(err => console.log(err))
   }
 
+
   render() {
 
     const {
@@ -26,16 +27,26 @@ class CourseDetail extends Component {
       userData
     } = this.state;
 
+    const authUser = this.props.context.authenticatedUser;
+
     return (
       <div>
         <div className="actions--bar">
           <div className="bounds">
             <div className="grid-100">
-              <span>
-                <Link className="button" to={`/courses/${courseData.id}/update`}>Update Course</Link>
-                <Link className="button" to={`/courses/${courseData.id}`}>Delete Course</Link>
-              </span>
-              <Link className="button button-secondary" to="/">Return to List</Link>
+              {authUser && authUser.id === userData.id ?
+                <React.Fragment>
+                  <span>
+                    <Link className="button" to={`/courses/${courseData.id}/update`}>Update Course</Link>
+                    <Link className="button" to='/'>Delete Course</Link>
+                  </span>
+                  <Link className="button button-secondary" to="/">Return to List</Link>
+                </React.Fragment>
+              :
+                <React.Fragment>
+                  <Link className="button button-secondary" to="/">Return to List</Link>
+                </React.Fragment>
+              }
             </div>
           </div>
         </div>
