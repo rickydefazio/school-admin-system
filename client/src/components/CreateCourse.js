@@ -22,11 +22,53 @@ class CreateCourse extends Component {
     });
   }
 
+  submit = () => {
+    const { context } = this.props;
+
+    const {
+      userId,
+      emailAddress
+    } = context.authenticatedUser;
+
+    const {
+      title,
+      description,
+      estimatedTime,
+      materialsNeeded
+    } = this.state;
+
+    const course = {
+      userId,
+      title,
+      description,
+      estimatedTime,
+      materialsNeeded
+    };
+  
+
+    const password = prompt('Please confirm password.');
+
+    context.data.createCourse(course, emailAddress, password)
+      .then( errors => {
+        if (errors.length) {
+          this.setState({ errors });
+        } else {
+          this.props.history.push('/');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.props.history.push('/error');
+      });
+  }
+
+  cancel = () => {
+   this.props.history.push('/');
+  }
+
 
 
   render() {
-
-
     const {
       title,
       description,

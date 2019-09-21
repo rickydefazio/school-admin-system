@@ -20,6 +20,24 @@ class CourseDetail extends Component {
   }
 
 
+  handleDelete = async (e) => {
+    e.preventDefault();
+    const { context } = this.props;
+    const { courseData } = this.state;
+    const { emailAddress } = context.authenticatedUser;
+    const password = prompt('Please confirm password.');
+
+    context.data.deleteCourse(courseData.id, emailAddress, password)
+      .then(() => {
+        this.props.history.push('/')
+      })
+      .catch((err) => {
+        console.log(err);
+        this.props.history.push('/error');
+      });
+  }
+
+
   render() {
 
     const {
@@ -29,16 +47,17 @@ class CourseDetail extends Component {
 
     const authUser = this.props.context.authenticatedUser;
 
+
     return (
       <div>
         <div className="actions--bar">
           <div className="bounds">
             <div className="grid-100">
-              {authUser && authUser.id === userData.id ?
+              {authUser && authUser.userId === userData.id ?
                 <React.Fragment>
                   <span>
                     <Link className="button" to={`/courses/${courseData.id}/update`}>Update Course</Link>
-                    <Link className="button" to='/'>Delete Course</Link>
+                    <Link className="button" onClick={this.handleDelete} to='/'>Delete Course</Link>
                   </span>
                   <Link className="button button-secondary" to="/">Return to List</Link>
                 </React.Fragment>
