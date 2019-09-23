@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+const ReactMarkdown = require('react-markdown')
 
 class CourseDetail extends Component {
 
@@ -77,7 +78,7 @@ class CourseDetail extends Component {
               <p>By {`${userData.firstName} ${userData.lastName}`}</p>
             </div>
             <div className="course--description">
-              <p>{courseData.description}</p>
+              <ReactMarkdown source={courseData.description} />
             </div>
           </div>
           <div className="grid-25 grid-right">
@@ -89,9 +90,7 @@ class CourseDetail extends Component {
                 </li>
                 <li className="course--stats--list--item">
                   <h4>Materials Needed</h4>
-                  <ul>
-                    {courseData.materialsNeeded}
-                  </ul>
+                    <ReactMarkdown source={courseData.materialsNeeded} />
                 </li>
               </ul>
             </div>

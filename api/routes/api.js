@@ -137,24 +137,18 @@ router.post('/courses', authenticateUser, async (req, res, next) => {
 // Send a PUT request to /api/courses/:id that updates a course and returns no content. Status code: 204
 router.put('/courses/:id', authenticateUser, async (req, res, next) => {
   try {
-    if (!req.body.title || !req.body.description) {
-      const error = new Error('A title and body are required.');
-      error.status = 400;
-      next(error);
-    } else {
-      const user = req.currentUser;
-      const course = await Course.findByPk(req.params.id, {
-        include: [ 
-          { model: User } 
-        ]
-      });
+    const user = req.currentUser;
+    const course = await Course.findByPk(req.params.id, {
+      include: [ 
+        { model: User } 
+      ]
+    });
 
-      if (user.id === course.userId) {
-        await course.update(req.body);
-        res.status(204).end();
-      } else {
-        res.status(403).end();
-      }
+    if (user.id === course.userId) {
+      await course.update(req.body);
+      res.status(204).end();
+    } else {
+      res.status(403).end();
     }
   } catch (error) {
     if (error.name === 'SequelizeValidationError') {

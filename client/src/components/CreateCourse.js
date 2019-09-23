@@ -63,7 +63,7 @@ class CreateCourse extends Component {
   }
 
   cancel = () => {
-   this.props.history.push('/');
+    this.props.history.push('/');
   }
 
 
@@ -86,7 +86,8 @@ class CreateCourse extends Component {
     return (
       <div className="bounds course--detail">
         <h1>Create Course</h1>
-        <Form 
+        <div>
+          <Form 
             cancel={this.cancel}
             errors={errors}
             submit={this.submit}
@@ -152,7 +153,8 @@ class CreateCourse extends Component {
                   </div>
                 </div>
               </React.Fragment>
-        )} />
+          )} />
+        </div>
       </div>
     );
   }
