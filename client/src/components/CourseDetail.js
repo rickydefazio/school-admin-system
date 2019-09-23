@@ -12,13 +12,20 @@ class CourseDetail extends Component {
   componentDidMount() {
     this.props.context.data.getCourse(this.props.match.params.id)
       .then(data => {
-        this.setState({
-          courseData: data,
-          userData: data.User
-        })
+        if (data) {
+          this.setState({
+            courseData: data,
+            userData: data.User
+          })
+        } else {
+          this.props.history.push('./notfound');
+        }
       })
-      .catch(err => console.log(err))
-  }
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error');
+      });
+    }
 
 
   handleDelete = async (e) => {

@@ -11,6 +11,25 @@ class UpdateCourse extends Component {
     errors: []
   }
 
+  componentDidMount() {
+    this.props.context.data.getCourse(this.props.match.params.id)
+      .then(data => {
+        if (data) {
+          if (data.User.id === this.props.context.authenticatedUser.userId) {
+            document.title = "Updating Course";
+          } else {
+            this.props.history.push('/forbidden');
+          }
+        } else {
+          this.props.history.push('/notfound');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/error');
+      })
+  }
+
   change = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -49,7 +68,7 @@ class UpdateCourse extends Component {
     const password = prompt('Please confirm password.');
 
     context.data.updateCourse(id, course, emailAddress, password)
-      .then( errors => {
+      .then(errors => {
         if (errors.length) {
           this.setState({ errors });
         } else {
