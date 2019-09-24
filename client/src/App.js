@@ -30,7 +30,7 @@ const CourseDetailWithContext = withContext(CourseDetail);
 
 
 
-
+// Main component used to orchestrate routing/rendering of components.
 const App = () => (
   <BrowserRouter>
     <div>

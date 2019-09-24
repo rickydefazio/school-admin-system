@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+  Component to render when user tries to access a route that doesn't exist.
+ */
 const NotFound = () => (
   <div className="bounds">
     <h1>Not Found</h1>

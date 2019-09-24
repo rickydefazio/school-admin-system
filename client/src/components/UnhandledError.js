@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+  Component to render when a server error occurs.
+ */
 const UnhandledError = () => (
   <div className="bounds">
     <h1>Error</h1>

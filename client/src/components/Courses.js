@@ -9,6 +9,7 @@ class Courses extends Component {
   componentDidMount() {
     document.title = "Courses";
 
+    // Call getCourses, and set state when component mounts
     this.props.context.data.getCourses()
       .then(data => {
         this.setState({
@@ -20,6 +21,7 @@ class Courses extends Component {
 
   render() {
 
+    // map over courses, and render link and title for each.
     const courseTitles = this.state.courseData.map(course => {
       return (
         <div key={course.id} className="grid-33">

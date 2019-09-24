@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 const ReactMarkdown = require('react-markdown')
 
+
 class CourseDetail extends Component {
 
   state = {
@@ -9,10 +10,12 @@ class CourseDetail extends Component {
     userData: []
   }
 
-  componentDidMount() {
+  componentDidMount() { 
+    // call getCourse and set state when component initially renders
     this.props.context.data.getCourse(this.props.match.params.id)
       .then(data => {
         if (data) {
+          document.title = "Course Details";
           this.setState({
             courseData: data,
             userData: data.User
@@ -27,7 +30,7 @@ class CourseDetail extends Component {
       });
     }
 
-
+  
   handleDelete = async (e) => {
     e.preventDefault();
     const { context } = this.props;
@@ -54,7 +57,6 @@ class CourseDetail extends Component {
     } = this.state;
 
     const authUser = this.props.context.authenticatedUser;
-
 
     return (
       <div>

@@ -51,6 +51,7 @@ class UserSignIn extends Component {
     );
   }
 
+  // sets state for each event triggered by onChange
   change = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -67,6 +68,7 @@ class UserSignIn extends Component {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     const { emailAddress, password } = this.state;
 
+    // run signIn; check signIn info against database users
     context.actions.signIn(emailAddress, password)
       .then( user => {
         if (user === null) {

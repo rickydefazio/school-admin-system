@@ -78,6 +78,7 @@ class UserSignUp extends Component {
     );
   }
 
+  // sets state for each event triggered by onChange
   change = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -107,13 +108,13 @@ class UserSignUp extends Component {
       password
     };
 
-
-    if (password !== confirmPassword) {
+    
+    if (password !== confirmPassword) { // checks if password input matches confirmation password input
       const passwordsDoNotMatch = [ "Passwords do not match." ];
       this.setState({ 
         errors: passwordsDoNotMatch 
       })
-    } else {
+    } else { // run createUser func
       context.data.createUser(user)
         .then(errors => {
           if (errors.length) {

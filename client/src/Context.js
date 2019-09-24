@@ -36,7 +36,12 @@ export class Provider extends Component {
     );
   }
 
-  
+  /**
+   * @description Call getUser function, and expect a user object to use for setting authenticatedUser in state.
+   * @param {string} emailAddress
+   * @param {string} password
+   * @returns object
+   */
   signIn = async (emailAddress, password) => {
     const user = await this.data.getUser(emailAddress, password);
     if (user !== null) {
@@ -50,6 +55,7 @@ export class Provider extends Component {
     return user;
   }
 
+  // resets authenticatedUser to 'null' and removes associated cookie.
   signOut = () => {
     this.setState({ authenticatedUser: null });
     Cookies.remove('authenticatedUser');
@@ -58,7 +64,11 @@ export class Provider extends Component {
 
 export const Consumer = Context.Consumer;
 
-
+/**
+ * A higher-order component that wraps the provided component in a Context Consumer component.
+ * @param {class} Component - A React component.
+ * @returns {function} A higher-order component.
+ */
 
 export default function withContext(Component) {
   return function ContextComponent(props) {

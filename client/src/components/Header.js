@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-const Header = ( { context } ) => {
+/**
+ * @description Header component with conditional rendering based on authenticated user.
+ * @param {props} context  
+ */
+const Header = ({ context }) => {
 
   const authUser = context.authenticatedUser;
 

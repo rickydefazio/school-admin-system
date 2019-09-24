@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Form from './Form';
 
 class CreateCourse extends Component {
-  
   state = {
     title: '', 
     description: '',
@@ -10,63 +9,6 @@ class CreateCourse extends Component {
     materialsNeeded: '', 
     errors: []
   }
-
-  change = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    this.setState(() => {
-      return {
-        [name]: value
-      };
-    });
-  }
-
-  submit = () => {
-    const { context } = this.props;
-
-    const {
-      userId,
-      emailAddress
-    } = context.authenticatedUser;
-
-    const {
-      title,
-      description,
-      estimatedTime,
-      materialsNeeded
-    } = this.state;
-
-    const course = {
-      userId,
-      title,
-      description,
-      estimatedTime,
-      materialsNeeded
-    };
-  
-
-    const password = prompt('Please confirm password.');
-
-    context.data.createCourse(course, emailAddress, password)
-      .then( errors => {
-        if (errors.length) {
-          this.setState({ errors });
-        } else {
-          this.props.history.push('/');
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        this.props.history.push('/error');
-      });
-  }
-
-  cancel = () => {
-    this.props.history.push('/');
-  }
-
-
 
   render() {
     const {
@@ -81,7 +23,6 @@ class CreateCourse extends Component {
       firstName, 
       lastName
     } = this.props.context.authenticatedUser;
-
 
     return (
       <div className="bounds course--detail">
@@ -158,6 +99,63 @@ class CreateCourse extends Component {
       </div>
     );
   }
+
+  // sets state for each event triggered by onChange
+  change = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState(() => {
+      return {
+        [name]: value
+      };
+    });
+  }
+
+  submit = () => {
+    const { context } = this.props;
+
+    const {
+      userId,
+      emailAddress
+    } = context.authenticatedUser;
+
+    const {
+      title,
+      description,
+      estimatedTime,
+      materialsNeeded
+    } = this.state;
+
+    const course = {
+      userId,
+      title,
+      description,
+      estimatedTime,
+      materialsNeeded
+    };
+
+    const password = prompt('Please confirm password.');
+
+    // call createCourse on submit
+    context.data.createCourse(course, emailAddress, password)
+      .then(errors => {
+        if (errors.length) {
+          this.setState({ errors });
+        } else {
+          this.props.history.push('/');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.props.history.push('/error');
+      });
+  }
+
+  cancel = () => {
+    this.props.history.push('/');
+  }
+
 }
 
 export default CreateCourse;

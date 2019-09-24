@@ -12,15 +12,17 @@ class UpdateCourse extends Component {
   }
 
   componentDidMount() {
+    // runs getCourse on when component mounts
     this.props.context.data.getCourse(this.props.match.params.id)
       .then(data => {
         if (data) {
+          // compares course associated userId to current authenticated userId
           if (data.User.id === this.props.context.authenticatedUser.userId) {
             document.title = "Updating Course";
-          } else {
+          } else { // if user is unauthorized
             this.props.history.push('/forbidden');
           }
-        } else {
+        } else { // if user tries to access a course that doesn't exist
           this.props.history.push('/notfound');
         }
       })
@@ -28,61 +30,6 @@ class UpdateCourse extends Component {
         console.log(err);
         this.props.history.push('/error');
       })
-  }
-
-  change = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-
-    this.setState(() => {
-      return {
-        [name]: value
-      };
-    });
-  }
-
-  submit = () => {
-    const { context } = this.props;
-
-    const {
-      userId,
-      emailAddress
-    } = context.authenticatedUser;
-
-    const {
-      title,
-      description,
-      estimatedTime,
-      materialsNeeded
-    } = this.state;
-
-    const course = {
-      userId,
-      title,
-      description,
-      estimatedTime,
-      materialsNeeded
-    };
-
-    const id = this.props.match.params.id;
-    const password = prompt('Please confirm password.');
-
-    context.data.updateCourse(id, course, emailAddress, password)
-      .then(errors => {
-        if (errors.length) {
-          this.setState({ errors });
-        } else {
-          this.props.history.push('/');
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        this.props.history.push('/error');
-      });
-  }
-
-  cancel = () => {
-    this.props.history.push('/');
   }
 
   render() {
@@ -173,6 +120,65 @@ class UpdateCourse extends Component {
       </div>
     );
   }
+
+  // sets state for each event triggered by onChange
+  change = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState(() => {
+      return {
+        [name]: value
+      };
+    });
+  }
+
+  submit = () => {
+    const { context } = this.props;
+
+    const {
+      userId,
+      emailAddress
+    } = context.authenticatedUser;
+
+    const {
+      title,
+      description,
+      estimatedTime,
+      materialsNeeded
+    } = this.state;
+
+    const course = {
+      userId,
+      title,
+      description,
+      estimatedTime,
+      materialsNeeded
+    };
+
+    const id = this.props.match.params.id;
+    const password = prompt('Please confirm password.');
+
+    // run updateCourse, passing course ID, course info, and credentials
+    context.data.updateCourse(id, course, emailAddress, password)
+      .then(errors => {
+        if (errors.length) {
+          this.setState({ errors });
+        } else {
+          this.props.history.push('/');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.props.history.push('/error');
+      });
+  }
+
+  cancel = () => {
+    const id = this.props.match.params.id;
+    this.props.history.push(`/courses/${id}`);
+  }
+
 }
 
 export default UpdateCourse;
