@@ -1,2 +1,8 @@
 # School Database Administration System
-Provides a way for users to administer a school database containing information about courses. Users can interact with the database by retrieving a list of courses, viewing detail for a specific course, as well as creating, updating and deleting courses in the database.
+
+• Provided an interactive way for users to administer a school database whereby users can retrieve a list of courses, view details for a specific course, as well as create, update and delete existing courses.
+• Utilized: JavaScript, React.js, Express.js, SQLite3, and a REST API built from scratch.
+
+## Getting Started
+
+coming soon...
