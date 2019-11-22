@@ -207,7 +207,7 @@ body {
 
 /* line 13, ../sass/global.sass */
 .header {
-  background: #57496e;
+  background: #30569c;
   padding: 20px 0;
   margin-bottom: 30px;
 }
@@ -288,7 +288,7 @@ h1 {
 
 /* line 61, ../sass/global.sass */
 a {
-  color: #7c689b;
+  color: #30569c;
   cursor: pointer;
   text-decoration: none;
   -webkit-transition: color 0.2s;
@@ -345,7 +345,7 @@ p {
 
 /* line 102, ../sass/global.sass */
 .course--module {
-  background: #7c689b;
+  background: #30569c;
   border-radius: 8px;
   padding: 30px;
   margin-bottom: 30px;
@@ -354,6 +354,7 @@ p {
   position: relative;
   box-sizing: border-box;
 }
+
 /* line 2, ../sass/mixins.sass */
 .course--module:before, .course--module:after {
   content: " ";
@@ -662,7 +663,7 @@ input:-ms-input-placeholder {
 }
 /* line 500, ../sass/global.sass */
 input:focus {
-  border-color: #7c689b;
+  border-color: #30569c;
 }
 
 /* line 29, ../sass/mixins.sass */
@@ -684,7 +685,7 @@ input:focus {
 
 /* line 507, ../sass/global.sass */
 .button {
-  background: #7c689b;
+  background: #30569c;
   color: #fff;
   font-family: "Work Sans", sans-serif;
   font-size: 18px;
@@ -707,14 +708,14 @@ input:focus {
 }
 /* line 522, ../sass/global.sass */
 .button:not(.button-secondary):hover {
-  background: #63537d;
+  background: #4275d3;
 }
 
 /* line 525, ../sass/global.sass */
 .button-secondary {
-  color: #7c689b;
+  color: #30569c;
   background: none;
-  box-shadow: 0 0 0 2px #7c689b inset;
+  box-shadow: 0 0 0 2px #30569c inset;
   -webkit-transition: box-shadow 0.2s, color 0.2s;
   -moz-transition: box-shadow 0.2s, color 0.2s;
   -ms-transition: box-shadow 0.2s, color 0.2s;
@@ -723,8 +724,8 @@ input:focus {
 }
 /* line 530, ../sass/global.sass */
 .button-secondary:hover {
-  color: #63537d;
-  box-shadow: 0 0 0 2px #63537d inset;
+  color: #4275d3;
+  box-shadow: 0 0 0 2px #30569c inset;
 }
 
 /* adds additional padding to the bottom of an element */
@@ -745,11 +746,11 @@ input:focus {
 
 /* styles the validation errors */
 .validation--errors--label {
-  color: #7c689b;
+  color: #30569c;
   font-size: 28px;
 }
 .validation-errors ul {
-  color: #7c689b;
+  color: #30569c;
   padding: 15px 0 40px 10px;
 }
 
