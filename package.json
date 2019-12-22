@@ -1,0 +1,19 @@
+{
+  "name": "school-admin-system",
+  "version": "1.0.0",
+  "description": "* Provided an interactive way for users to administer a school database whereby users can retrieve a list of courses, view details for a specific course, as well as create, update and delete existing courses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RickyDeFazio/full-stack-app.git"
+  },
+  "author": "Ricky DeFazio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RickyDeFazio/full-stack-app/issues"
+  },
+  "homepage": "https://github.com/RickyDeFazio/full-stack-app#readme"
+}
