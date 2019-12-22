@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RickyDeFazio/full-stack-app.git"
+    "url": "git+https://github.com/RickyDeFazio/school-admin-system.git"
   },
   "author": "Ricky DeFazio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RickyDeFazio/full-stack-app/issues"
+    "url": "https://github.com/RickyDeFazio/school-admin-system/issues"
   },
-  "homepage": "https://github.com/RickyDeFazio/full-stack-app#readme"
+  "homepage": "https://github.com/RickyDeFazio/school-admin-system#readme"
 }
