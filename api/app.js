@@ -52,7 +52,7 @@ const apiRoutes = require('./routes/api');
 app.use('/api', apiRoutes);
 
 
-// testing code 
+// For Production Build & Hosting Purposes 
 app.use(express.static(path.join(__dirname, '../client/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'../client/build/index.html'));
