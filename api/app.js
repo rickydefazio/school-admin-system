@@ -44,7 +44,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Root route 
 const indexRoute = require('./routes');
-// app.use(indexRoute);
+app.use(indexRoute);
 
 
 // TODO setup your api routes here
