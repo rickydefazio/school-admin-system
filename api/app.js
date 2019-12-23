@@ -4,6 +4,7 @@
 const express = require('express');
 const morgan = require('morgan');
 var cors = require('cors');
+const path = require('path');
 
 const { sequelize } = require('./db');
 
@@ -43,7 +44,13 @@ app.use(express.urlencoded({ extended: false }));
 
 // Root route 
 const indexRoute = require('./routes');
-app.use(indexRoute);
+// app.use(indexRoute);
+
+// testing code 
+app.use(express.static(path.join(__dirname, '../client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'../../client/build/index.html'));
+});
 
 
 // TODO setup your api routes here
@@ -69,6 +76,7 @@ app.use((err, req, res, next) => {
     errors: err.errors
   });
 });
+
 
 // set our port
 app.set('port', process.env.PORT || 5000);
