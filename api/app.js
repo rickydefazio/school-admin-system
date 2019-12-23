@@ -46,16 +46,17 @@ app.use(express.urlencoded({ extended: false }));
 const indexRoute = require('./routes');
 // app.use(indexRoute);
 
-// testing code 
-app.use(express.static(path.join(__dirname, '../client/build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'../../client/build/index.html'));
-});
-
 
 // TODO setup your api routes here
 const apiRoutes = require('./routes/api');
 app.use('/api', apiRoutes);
+
+
+// testing code 
+app.use(express.static(path.join(__dirname, '../client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'../client/build/index.html'));
+});
 
 
 // send 404 if no other route matched
