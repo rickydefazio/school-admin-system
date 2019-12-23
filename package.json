@@ -4,7 +4,13 @@
   "description": "* Provided an interactive way for users to administer a school database whereby users can retrieve a list of courses, view details for a specific course, as well as create, update and delete existing courses.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd api && npm i && npm start",
+    "seed": "cd api && npm run seed",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "10.16.3"
   },
   "repository": {
     "type": "git",
