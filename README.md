@@ -9,3 +9,8 @@
 ## Getting Started
 
 Coming Soon...
+
+
+## Upcoming Changes
+
+1. Adjust responsiveness of courses page
