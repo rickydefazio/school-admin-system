@@ -15,3 +15,8 @@ Then, run: `npm install && npm run seed && npm start`
 Using a new terminal, access the CLIENT directory using: `cd client`
 
 Lastly, run `npm install && npm run start`
+
+
+## Upcoming Changes
+
+1. Adjust responsiveness of courses page
