@@ -40,7 +40,7 @@ export class Provider extends Component {
    * @description Call getUser function, and expect a user object to use for setting authenticatedUser in state.
    * @param {string} emailAddress
    * @param {string} password
-   * @returns object
+   * @returns {object}
    */
   signIn = async (emailAddress, password) => {
     const user = await this.data.getUser(emailAddress, password);

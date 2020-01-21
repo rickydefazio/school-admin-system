@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 /****************************
  * Course Model Initialization 
 *****************************/
+
 module.exports = (sequelize) => {
   class Course extends Sequelize.Model {}
   Course.init({

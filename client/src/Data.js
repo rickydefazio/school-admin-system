@@ -104,7 +104,7 @@ export default class Data {
 
 
   /**
-   * @description Send a POST request to /api/courses, provide credentials, and anticipatea 201 status code.
+   * @description Send a POST request to /api/courses, provide credentials, and anticipate 201 status code.
    * @param {object} course 
    * @param {string} emailAddress 
    * @param {string} password 

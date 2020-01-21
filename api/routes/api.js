@@ -28,7 +28,7 @@ router.get('/users', authenticateUser, (req, res, next) => {
 });
 
 
-// Send a POST request to /api/users that creates a user, sets the Location header to '/', and return no content. Status code: 201
+// Send a POST request to /api/users that creates a user, sets the Location header to '/', return no content. Status code: 201
 router.post('/users', async (req, res, next) => {
   try {
     const user = req.body;
